@@ -30,7 +30,7 @@ const CONFIG = {
   //    icono: "huella" | "regalo" | "pin" | "cabana"  (dibujos SVG en tonos de la web)
   revelaciones: [
     {
-      desbloqueo:      new Date(2026, 6, 3, 0, 0, 0),   // 3 de julio a las 00:00
+      desbloqueo:      new Date(2026, 6, 3, 0, 15, 0),   // 3 de julio a las 00:15 (madrugada de hoy)
       colorBloqueado:  "#B08968",   // fondo mientras está bloqueada
       colorCuenta:     "#FDF8F3",   // color de la cuenta atrás (contraste)
       icono:           "huella",
