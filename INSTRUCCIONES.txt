@@ -44,6 +44,10 @@ Abre  script.js  con el Bloc de notas y busca arriba el bloque CONFIG.
   Puedes poner las que quieras (5, 10, 20…). El carrusel y los
   popups las usan automáticamente.
 
+  El carrusel avanza solo, pero también se puede arrastrar con el
+  dedo (o el ratón); al soltarlo retoma su ritmo. La velocidad se
+  ajusta en script.js con SEGUNDOS_POR_VUELTA (más bajo = más rápido).
+
 ──────────────────────────────────────────────────────────
 3) VER LA WEB EN TU ORDENADOR
 ──────────────────────────────────────────────────────────
