@@ -191,9 +191,10 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") closePopup()
 
 /* ---------- Carrusel continuo ---------- */
 const track = document.getElementById("carousel-track");
+const carousel = track.parentElement;
 
 // Dos copias idénticas de las fotos: el track se desplaza exactamente el
-// ancho de una copia (-50%) y el bucle queda sin saltos.
+// ancho de una copia y el bucle queda sin saltos.
 // Carga "eager": con lazy el navegador no carga las fotos que empiezan
 // fuera de pantalla dentro de un track animado y salen huecos vacíos.
 function crearGrupoCarrusel(){
@@ -205,6 +206,7 @@ function crearGrupoCarrusel(){
     img.src = src;
     img.alt = "";
     img.decoding = "async";
+    img.draggable = false;
     img.addEventListener("error", () => img.remove());
     group.appendChild(img);
   });
@@ -212,6 +214,57 @@ function crearGrupoCarrusel(){
 }
 track.appendChild(crearGrupoCarrusel());
 track.appendChild(crearGrupoCarrusel());
+
+/* Movimiento del carrusel: avanza solo a ritmo constante y se puede
+   arrastrar con el dedo o el ratón; al soltar conserva un pequeño
+   impulso que se va frenando hasta volver a su ritmo normal. */
+const SEGUNDOS_POR_VUELTA = 25;   // antes 40s por vuelta — ahora más rápido
+const MOVIMIENTO_REDUCIDO = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+let offset = 0;          // desplazamiento acumulado del track (px)
+let impulso = 0;         // velocidad extra que deja el dedo al soltar (px/s)
+let arrastrando = false;
+let ultimaX = 0, ultimaT = 0;
+
+const anchoGrupo = () => track.scrollWidth / 2;
+
+carousel.addEventListener("pointerdown", e => {
+  arrastrando = true;
+  impulso = 0;
+  ultimaX = e.clientX;
+  ultimaT = performance.now();
+  carousel.setPointerCapture(e.pointerId);
+});
+carousel.addEventListener("pointermove", e => {
+  if (!arrastrando) return;
+  const ahora = performance.now();
+  const dx = e.clientX - ultimaX;
+  offset -= dx;
+  const dt = (ahora - ultimaT) / 1000;
+  if (dt > 0) impulso = Math.max(-2500, Math.min(2500, -dx / dt));
+  ultimaX = e.clientX;
+  ultimaT = ahora;
+});
+const soltarCarrusel = () => { arrastrando = false; };
+carousel.addEventListener("pointerup", soltarCarrusel);
+carousel.addEventListener("pointercancel", soltarCarrusel);
+
+let tPrev = performance.now();
+function moverCarrusel(t){
+  const dt = Math.min((t - tPrev) / 1000, 0.1);
+  tPrev = t;
+  if (!arrastrando){
+    if (!MOVIMIENTO_REDUCIDO) offset += (anchoGrupo() / SEGUNDOS_POR_VUELTA) * dt;
+    offset += impulso * dt;
+    impulso *= Math.exp(-3 * dt);
+    if (Math.abs(impulso) < 5) impulso = 0;
+  }
+  const ancho = anchoGrupo();
+  if (ancho > 0) offset = ((offset % ancho) + ancho) % ancho;
+  track.style.transform = `translateX(${-offset}px)`;
+  requestAnimationFrame(moverCarrusel);
+}
+requestAnimationFrame(moverCarrusel);
 
 /* ---------- Bucle ---------- */
 function tick(){ tickHero(); tickReveals(); }

@@ -236,23 +236,25 @@ body{
 .carousel{
   overflow: hidden;
   width: 100%;
+  touch-action: pan-y;   /* el dedo mueve el carrusel en horizontal; la página sigue haciendo scroll vertical */
+  cursor: grab;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
           mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
+.carousel:active{ cursor: grabbing; }
 .carousel-track{
   display: flex;
   width: max-content;
   padding: .5rem 0;
-  animation: scrollX 40s linear infinite;
+  will-change: transform;
 }
 /* Cada copia lleva su gap interno y un padding-right igual al gap:
-   así el ancho de una copia es un periodo exacto y el -50% no salta. */
+   así el ancho de una copia es un periodo exacto y el bucle no salta. */
 .carousel-group{
   display: flex;
   gap: 1rem;
   padding-right: 1rem;
 }
-.carousel:hover .carousel-track{ animation-play-state: paused; }
 .slide{
   height: 190px;
   width: auto;
@@ -262,6 +264,8 @@ body{
   box-shadow: 0 10px 22px var(--shadow);
   background: var(--sand);
   flex: 0 0 auto;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* ============================================================
@@ -334,7 +338,6 @@ body{
 /* ============================================================
    ANIMACIONES
    ============================================================ */
-@keyframes scrollX{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
 @keyframes fadeUp{ from{ opacity:0; transform: translateY(24px);} to{ opacity:1; transform:none; } }
 @keyframes pop{ 0%{ transform: scale(0);} 60%{ transform: scale(1.2);} 100%{ transform: scale(1);} }
 @keyframes floaty{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-8px);} }
@@ -344,7 +347,7 @@ body{
 }
 
 @media (prefers-reduced-motion: reduce){
-  .carousel-track, .card-open .card-icon{ animation: none !important; }
+  .card-open .card-icon{ animation: none !important; }
 }
 
 /* ============================================================
