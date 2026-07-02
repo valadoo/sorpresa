@@ -13,19 +13,24 @@ const CONFIG = {
   // 🖼️ Imágenes del carrusel y de los popups.
   //    Mete tus fotos en la carpeta /imagenes y pon aquí sus nombres.
   imagenes: [
-    "imagenes/foto1.svg",
-    "imagenes/foto2.svg",
-    "imagenes/foto3.svg",
-    "imagenes/foto4.svg",
-    "imagenes/foto5.svg",
-    "imagenes/foto6.svg"
+    "imagenes/img1.JPG",
+    "imagenes/img2.JPG",
+    "imagenes/img3.JPG",
+    "imagenes/img4.JPG",
+    "imagenes/img5.JPG",
+    "imagenes/img6.JPG",
+    "imagenes/img7.JPG",
+    "imagenes/img8.JPG",
+    "imagenes/img9.JPG",
+    "imagenes/img10.JPG",
+    "imagenes/img11.JPG"
   ],
 
   // 🔓 Las 4 pistas. Se muestran en este orden (Braga = la última).
   //    icono: "huella" | "regalo" | "pin" | "cabana"  (dibujos SVG en tonos de la web)
   revelaciones: [
     {
-      desbloqueo:      new Date(2026, 6, 3, 14, 0, 0),   // mañana, 3 de julio
+      desbloqueo:      new Date(2026, 6, 3, 0, 0, 0),   // 3 de julio a las 00:00
       colorBloqueado:  "#B08968",   // fondo mientras está bloqueada
       colorCuenta:     "#FDF8F3",   // color de la cuenta atrás (contraste)
       icono:           "huella",
