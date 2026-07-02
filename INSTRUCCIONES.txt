@@ -21,7 +21,8 @@ Abre  script.js  con el Bloc de notas y busca arriba el bloque CONFIG.
         desbloqueo      → cuándo se abre sola
         colorBloqueado  → color del fondo mientras está cerrada
         colorCuenta     → color de la cuenta atrás (contraste)
-        emoji           → el emoticono que aparece al abrirse
+        icono           → el dibujo que aparece al abrirse
+                          ("huella", "regalo", "pin" o "cabana")
         titulo / cuerpo → el texto del popup
 
   La última pista es la de Braga (la cabaña). Cambia el "cuerpo"
