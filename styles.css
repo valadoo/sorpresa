@@ -241,10 +241,16 @@ body{
 }
 .carousel-track{
   display: flex;
-  gap: 1rem;
   width: max-content;
-  padding: .5rem 1rem;
+  padding: .5rem 0;
   animation: scrollX 40s linear infinite;
+}
+/* Cada copia lleva su gap interno y un padding-right igual al gap:
+   así el ancho de una copia es un periodo exacto y el -50% no salta. */
+.carousel-group{
+  display: flex;
+  gap: 1rem;
+  padding-right: 1rem;
 }
 .carousel:hover .carousel-track{ animation-play-state: paused; }
 .slide{
