@@ -1,0 +1,72 @@
+╔══════════════════════════════════════════════════════════╗
+║   NUESTRA ESCAPADA — guía rápida para editarla            ║
+╚══════════════════════════════════════════════════════════╝
+
+📁 ARCHIVOS
+  · index.html   → estructura (no hace falta tocar casi nada)
+  · styles.css   → colores y diseño
+  · script.js    → AQUÍ editas textos, fechas e imágenes  ← lo importante
+  · imagenes/    → tus fotos
+
+──────────────────────────────────────────────────────────
+1) CAMBIAR TEXTOS Y FECHAS
+──────────────────────────────────────────────────────────
+Abre  script.js  con el Bloc de notas y busca arriba el bloque CONFIG.
+
+  · Cuenta atrás principal:
+        fechaViaje: new Date(2026, 6, 24, 14, 0, 0)
+        (año, MES-1, día, hora, min)   →  OJO: julio = 6, no 7
+
+  · Cada una de las 4 pistas tiene:
+        desbloqueo      → cuándo se abre sola
+        colorBloqueado  → color del fondo mientras está cerrada
+        colorCuenta     → color de la cuenta atrás (contraste)
+        emoji           → el emoticono que aparece al abrirse
+        titulo / cuerpo → el texto del popup
+
+  La última pista es la de Braga (la cabaña). Cambia el "cuerpo"
+  de cada una por el mensaje que quieras.
+
+──────────────────────────────────────────────────────────
+2) CAMBIAR LAS FOTOS
+──────────────────────────────────────────────────────────
+  a) Copia tus fotos dentro de la carpeta  imagenes/
+     (mejor .jpg o .png, y con nombres sencillos: foto1.jpg, foto2.jpg…)
+  b) En script.js, en la lista "imagenes", escribe los nombres reales:
+
+        imagenes: [
+          "imagenes/foto1.jpg",
+          "imagenes/foto2.jpg",
+          ...
+        ]
+
+  Puedes poner las que quieras (5, 10, 20…). El carrusel y los
+  popups las usan automáticamente.
+
+──────────────────────────────────────────────────────────
+3) VER LA WEB EN TU ORDENADOR
+──────────────────────────────────────────────────────────
+  Haz doble clic en  index.html  y se abrirá en el navegador.
+
+  🧪 MODO PRUEBA: si añades  ?demo  al final de la dirección en el
+  navegador (ej. ...index.html?demo) verás TODAS las cajas ya
+  desbloqueadas, para probar los popups sin esperar a las fechas.
+  Ese truco es solo para ti — no le pases ese enlace a ella 😉
+
+──────────────────────────────────────────────────────────
+4) SUBIRLA A GITHUB PAGES
+──────────────────────────────────────────────────────────
+  a) Crea un repositorio nuevo en github.com (por ejemplo "sorpresa").
+     Ponlo en Público.
+  b) Sube TODOS los archivos de esta carpeta (index.html, styles.css,
+     script.js y la carpeta imagenes). Puedes arrastrarlos en
+     "Add file → Upload files".
+  c) En el repo:  Settings → Pages →
+        Source: "Deploy from a branch"
+        Branch: main  /  carpeta: /(root)  →  Save
+  d) Espera 1-2 minutos. GitHub te dará un enlace tipo:
+        https://tu-usuario.github.io/sorpresa/
+     ¡Ese es el enlace que le mandas a ella! 🤎
+
+  Consejo: para no destripar la sorpresa, ponle al repo un nombre
+  neutro (no "braga"), porque el nombre sale en el enlace.

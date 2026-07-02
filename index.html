@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#7F5539" />
+  <title>Nuestra escapada 🤎</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ================= PORTADA ================= -->
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="hero-kicker">Reserva los días</p>
+      <h1 class="hero-days">24, 25 <span class="amp">y</span> 26<span class="dots">...</span></h1>
+      <p class="hero-sub">Que nos vamos</p>
+
+      <div class="countdown" id="hero-countdown" aria-label="Cuenta atrás hasta el viaje">
+        <div class="cd-box"><span class="cd-num" id="cd-d">00</span><span class="cd-label">días</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-h">00</span><span class="cd-label">horas</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-m">00</span><span class="cd-label">min</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-label">seg</span></div>
+      </div>
+
+      <p class="hero-message">
+        Lo único que me pediste para tu cumple, además de una casa, un coche, un móvil, un ordenador, etc. fue paz y tranquilidad. Como eso no se puede comprar, al menos nos vamos un finde para desconectar a un sitio muy guay, pero no puedes saber todo ya de primeras, si no pierde la gracia, así que los detalles se irán desvelando poco a poco, para mantenerte con la intriga.
+        <br /><br />
+        Felicidades amor, eres lo mejor que me ha pasado, te mereces esto y más, por muchos más viajes juntos.
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35Z"/></svg>
+      </p>
+
+      <p class="hero-note" id="hero-note"></p>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= PISTAS / BOTONES ================= -->
+    <section class="reveals-section">
+      <h2 class="section-title">Pistas por descubrir</h2>
+      <p class="section-hint">Cada caja se abre sola cuando llega su momento. Ten paciencia… <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35Z"/></svg></p>
+      <div class="reveals" id="reveals"><!-- generado por script.js --></div>
+    </section>
+
+    <!-- ================= CARRUSEL ================= -->
+    <section class="carousel-section">
+      <div class="carousel">
+        <div class="carousel-track" id="carousel-track"><!-- generado por script.js --></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Hecho con <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35Z"/></svg> para ti</p>
+  </footer>
+
+  <!-- ================= POPUP / MODAL ================= -->
+  <div class="modal-overlay" id="modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modal-close" aria-label="Cerrar">&times;</button>
+      <div class="modal-img-wrap">
+        <img class="modal-img" id="modal-img" alt="Foto sorpresa" />
+      </div>
+      <h3 class="modal-title" id="modal-title"></h3>
+      <p class="modal-body" id="modal-body"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
