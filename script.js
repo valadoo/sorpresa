@@ -30,7 +30,7 @@ const CONFIG = {
   //    icono: "huella" | "regalo" | "pin" | "cabana"  (dibujos SVG en tonos de la web)
   revelaciones: [
     {
-      desbloqueo:      new Date(2026, 6, 3, 0, 15, 0),   // 3 de julio a las 00:15 (madrugada de hoy)
+      desbloqueo:      new Date(2026, 6, 3, 0, 20, 0),   // 3 de julio a las 00:20 (madrugada de hoy)
       colorBloqueado:  "#B08968",   // fondo mientras está bloqueada
       colorCuenta:     "#FDF8F3",   // color de la cuenta atrás (contraste)
       icono:           "huella",
@@ -191,15 +191,27 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") closePopup()
 
 /* ---------- Carrusel continuo ---------- */
 const track = document.getElementById("carousel-track");
-// Se duplica la lista para que el bucle sea infinito y sin cortes.
-[...CONFIG.imagenes, ...CONFIG.imagenes].forEach(src => {
-  const img = document.createElement("img");
-  img.className = "slide";
-  img.src = src;
-  img.alt = "";
-  img.loading = "lazy";
-  track.appendChild(img);
-});
+
+// Dos copias idénticas de las fotos: el track se desplaza exactamente el
+// ancho de una copia (-50%) y el bucle queda sin saltos.
+// Carga "eager": con lazy el navegador no carga las fotos que empiezan
+// fuera de pantalla dentro de un track animado y salen huecos vacíos.
+function crearGrupoCarrusel(){
+  const group = document.createElement("div");
+  group.className = "carousel-group";
+  CONFIG.imagenes.forEach(src => {
+    const img = document.createElement("img");
+    img.className = "slide";
+    img.src = src;
+    img.alt = "";
+    img.decoding = "async";
+    img.addEventListener("error", () => img.remove());
+    group.appendChild(img);
+  });
+  return group;
+}
+track.appendChild(crearGrupoCarrusel());
+track.appendChild(crearGrupoCarrusel());
 
 /* ---------- Bucle ---------- */
 function tick(){ tickHero(); tickReveals(); }
