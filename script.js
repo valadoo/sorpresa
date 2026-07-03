@@ -218,7 +218,7 @@ track.appendChild(crearGrupoCarrusel());
 /* Movimiento del carrusel: avanza solo a ritmo constante y se puede
    arrastrar con el dedo o el ratón; al soltar conserva un pequeño
    impulso que se va frenando hasta volver a su ritmo normal. */
-const SEGUNDOS_POR_VUELTA = 25;   // antes 40s por vuelta — ahora más rápido
+const SEGUNDOS_POR_VUELTA = 32;   // punto medio: ni los 40s originales ni los 25s de antes
 const MOVIMIENTO_REDUCIDO = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 let offset = 0;          // desplazamiento acumulado del track (px)
