@@ -44,8 +44,8 @@ const CONFIG = {
       colorCuenta:     "#FDF8F3",
       icono:           "regalo",
       etiqueta:        "¡Ábreme!",
-      titulo:          "Pista nº 2",
-      cuerpo:          "(Aquí pondrás el texto que quieras revelar en esta pista.)"
+      titulo:          "¡Resolvamos tus dudas!",
+      cuerpo:          "Sé que eres un poco pesada y lo quieres saber todo ya de una, pero no se puede. Así que hoy te toca saber que… ¡es un recinto vallado y las perras pueden ir sueltas! O eso me dijo el del Airbnb. Y te voy a soltar otra cosa más, para que aguantes hasta las siguientes pistas: son menos de 2 horas de viaje. ¡Te amo!"
     },
     {
       desbloqueo:      new Date(2026, 6, 8, 14, 0, 0),   // en 6 días
