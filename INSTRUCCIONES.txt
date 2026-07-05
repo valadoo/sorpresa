@@ -69,7 +69,9 @@ Abre  script.js  con el Bloc de notas y busca arriba el bloque CONFIG.
   c) En el repo:  Settings → Pages →
         Source: "Deploy from a branch"
         Branch: main  /  carpeta: /(root)  →  Save
-  d) Espera 1-2 minutos. GitHub te dará un enlace tipo:
+  d) Espera 1-2 minutos (a veces GitHub tarda algo más, o falla el
+     despliegue temporalmente; se arregla solo reintentando).
+     GitHub te dará un enlace tipo:
         https://tu-usuario.github.io/sorpresa/
      ¡Ese es el enlace que le mandas a ella! 🤎
 
