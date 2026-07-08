@@ -53,8 +53,8 @@ const CONFIG = {
       colorCuenta:     "#FDF8F3",
       icono:           "pin",
       etiqueta:        "¡Ábreme!",
-      titulo:          "Pista nº 3",
-      cuerpo:          "(Aquí va otra pista sorpresa. Cámbiala cuando quieras.)"
+      titulo:          "¿A dónde iremos?",
+      cuerpo:          "Hoy el pin del mapa se acerca un poco más: ¡salimos del país! Eso sí, no vamos a la costa… aunque si te apetece, podemos escaparnos un rato, que tampoco queda muy lejos."
     },
     {
       desbloqueo:      new Date(2026, 6, 14, 14, 0, 0),  // en 12 días
