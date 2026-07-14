@@ -62,8 +62,9 @@ const CONFIG = {
       colorCuenta:     "#FDF8F3",
       icono:           "cabana",
       etiqueta:        "¡Ábreme!",
-      titulo:          "¿A dónde vamos?",
-      cuerpo:          "¡Nos vamos a una cabaña en Braga! (edita este texto a tu gusto)."
+      titulo:          "¡NOS VAMOS A BRAGA!",
+      cuerpo:          "Por fin se abrió la última pista: nos vamos a Braga, a una cabañita totalmente vallada alrededor, con piscina compartida y a nada de la propia ciudad. Ahora ya lo sabes todo… y si te queda alguna duda, pregúntame lo que quieras. ¡Te amo!",
+      imagen:          "imagenes/cabana.jpeg"   // foto fija del popup (no va en el carrusel para no destripar)
     }
   ]
 };
@@ -175,7 +176,7 @@ function imagenAleatoria(){
 }
 
 function openPopup(rev){
-  modalImg.src = imagenAleatoria();
+  modalImg.src = rev.imagen || imagenAleatoria();
   modalTitle.textContent = rev.titulo;
   modalBody.textContent  = rev.cuerpo;
   modal.classList.add("open");
